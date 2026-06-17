@@ -1,0 +1,38 @@
+&CONTROL
+  calculation  = 'relax'
+  restart_mode = 'from_scratch'
+  prefix = 'CO'
+  wf_collect   = .false.
+  disk_io = 'none'
+  etot_conv_thr=5.0D-4
+  forc_conv_thr=5.0D-3
+  nstep = 150
+  pseudo_dir = "./"
+/
+&SYSTEM
+  ibrav     = 0
+  ecutwfc   = 60
+  ecutrho   = 240
+  nosym     = .true.
+  occupations = 'smearing'
+  smearing = 'marzari-vanderbilt'
+  degauss = 0.02
+/
+&ELECTRONS
+  conv_thr = 1.D-05
+  mixing_beta = 0.7
+  electron_maxstep = 100
+/
+&IONS
+  ion_dynamics = "bfgs"
+  trust_radius_max = 0.50
+/
+&CELL
+  cell_factor = 2.50
+  press = 500
+  cell_dynamics = "none"
+/
+ATOMIC_SPECIES
+C 12.0107 C_ONCV_PBE_sr.upf
+  
+
